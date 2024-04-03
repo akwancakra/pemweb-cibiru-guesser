@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Guess the spot</title>
+        <link href="/assets/css/main-game.css" rel="stylesheet" />
+        <link href="/assets/css/tw-reset.css" rel="stylesheet" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <section>
+            <div
+                class="bg-img"
+                style="background-image: url('/assets/img/spot.jpg')"
+            >
+                <div class="wrapper">
+                    <div class="btn-group-top">
+                        <a
+                            href="main-menu.html"
+                            class="btn btn-transparent btn-square"
+                        >
+                            <span
+                                class="material-symbols-outlined m-0 !text-xl"
+                            >
+                                home
+                            </span>
+                        </a>
+
+                        <button
+                            type="button"
+                            class="btn btn-transparent btn-square"
+                            onclick="showModal()"
+                        >
+                            <span
+                                class="material-symbols-outlined m-0 !text-xl"
+                            >
+                                help
+                            </span>
+                        </button>
+                    </div>
+
+                    <div class="btn-group-bottom">
+                        <button
+                            type="button"
+                            class="btn btn-transparent"
+                            onclick="showModalMap()"
+                        >
+                            Show map
+                            <span
+                                class="material-symbols-outlined m-0 !text-lg"
+                            >
+                                map
+                            </span>
+                        </button>
+
+                        <button type="button" class="btn btn-transparent">
+                            Skip
+                            <span
+                                class="material-symbols-outlined m-0 !text-lg"
+                            >
+                                navigate_next
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODAL HELP -->
+        <div
+            id="modal-help"
+            class="fixed flex opacity-0 items-center justify-center modal-wrapper"
+            aria-labelledby="modal-title"
+            role="dialog"
+            aria-modal="false"
+        >
+            <!-- Background backdrop -->
+            <div id="backdrop-modal-help" class="fixed modal-backdrop"></div>
+
+            <!-- Modal panel -->
+            <div class="modal-panel">
+                <div>
+                    <!-- Content -->
+                    <div class="modal-icon">
+                        <span class="material-symbols-outlined text-cyan-700"
+                            >help</span
+                        >
+                    </div>
+
+                    <h3 class="text-gray-900 text-header" id="modal-title">
+                        How to play
+                    </h3>
+                    <div class="text-gray-500 text-desc">
+                        <p>
+                            Are you sure you want to deactivate your account?
+                            All of your data will be permanently removed. This
+                            action cannot be undone.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Button -->
+                <div class="mt-4 flex justify-end">
+                    <button
+                        id="close-modal-help"
+                        type="button"
+                        class="btn btn-white"
+                        onclick="hideModal()"
+                    >
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL MAP -->
+        <div
+            id="modal-map"
+            class="fixed hidden opacity-0 items-center justify-center modal-wrapper"
+            aria-labelledby="modal-title"
+            role="dialog"
+            aria-modal="false"
+        >
+            <!-- Background backdrop -->
+            <div id="backdrop-modal-map" class="fixed modal-backdrop"></div>
+
+            <!-- Modal panel -->
+            <div class="modal-panel bg-transparent">
+                <div class="map-wrapper">
+                    <img
+                        src="/assets/img/Maps.png"
+                        alt="spot map"
+                        draggable="false"
+                        id="map-spot"
+                    />
+                </div>
+
+                <!-- Button -->
+                <div class="button-wrapper">
+                    <button
+                        id="close-modal-help"
+                        type="button"
+                        class="btn-white"
+                        onclick="hideModalMap()"
+                    >
+                        Close
+                    </button>
+                    <button
+                        type="button"
+                        class="btn-primary"
+                        onclick="submitMap()"
+                    >
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL RESULT -->
+        <div
+            id="modal-result"
+            class="fixed hidden opacity-0 items-center justify-center modal-wrapper"
+            aria-labelledby="modal-title"
+            role="dialog"
+            aria-modal="false"
+        >
+            <!-- Background backdrop -->
+            <div id="backdrop-modal-result" class="fixed modal-backdrop"></div>
+
+            <!-- Modal panel -->
+            <div class="modal-panel">
+                <div>
+                    <!-- Content -->
+                    <div class="modal-icon">
+                        <span class="material-symbols-outlined text-cyan-700"
+                            >done_all</span
+                        >
+                    </div>
+
+                    <h3 class="text-lg text-header" id="modal-title">
+                        Almost corrects
+                    </h3>
+                    <p class="text-header">4999/5000 points</p>
+                    <div class="text-gray-500 text-desc">
+                        <p>If you ready for next, press "Next" button</p>
+                    </div>
+                </div>
+
+                <!-- Button -->
+                <div class="button-end">
+                    <button
+                        id="close-modal-help"
+                        type="button"
+                        class="btn-primary"
+                    >
+                        Next
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const modal = document.getElementById("modal-help");
+            const backdrop = document.getElementById("backdrop-modal-help");
+
+            // Fungsi untuk menampilkan modal dan backdrop
+            function showModal() {
+                modal.classList.add("opacity-100");
+                modal.classList.remove("opacity-0", "pointer-events-none");
+                backdrop.classList.remove("opacity-0", "pointer-events-none");
+                backdrop.classList.add("opacity-75");
+                backdrop.style.pointerEvents = "auto";
+                modal.setAttribute("aria-hidden", "false");
+                modal.setAttribute("aria-modal", "true");
+            }
+
+            // Fungsi untuk menyembunyikan modal dan backdrop
+            function hideModal() {
+                modal.classList.add("opacity-0", "pointer-events-none");
+                modal.classList.remove("opacity-100");
+                backdrop.classList.remove("opacity-75");
+                backdrop.classList.add("opacity-0", "pointer-events-none");
+                backdrop.style.pointerEvents = "none";
+                modal.setAttribute("aria-hidden", "true");
+                modal.setAttribute("aria-modal", "false");
+            }
+
+            backdrop.addEventListener("click", hideModal);
+        </script>
+        <script>
+            const modalmap = document.getElementById("modal-map");
+            const backdropmap = document.getElementById("backdrop-modal-map");
+            const mapImage = document.getElementById("map-spot");
+            let marker = null;
+
+            mapImage.addEventListener("click", function (event) {
+                // Mengambil koordinat klik
+                const x = event.offsetX;
+                const y = event.offsetY;
+
+                // Hapus mark titik yang sudah ada jika ada
+                if (marker !== null) {
+                    marker.remove();
+                }
+
+                // Buat elemen mark titik baru
+                marker = document.createElement("div");
+                marker.classList.add("marker");
+
+                // Atur posisi mark titik sesuai dengan koordinat klik
+                marker.style.left = `${x}px`;
+                marker.style.top = `${y}px`;
+
+                // Tambahkan mark titik ke dalam gambar peta
+                mapImage.parentNode.appendChild(marker);
+            });
+
+            // Fungsi untuk menampilkan modal dan backdrop
+            function showModalMap() {
+                modalmap.classList.add("flex");
+                modalmap.classList.add("opacity-100");
+                modalmap.classList.remove("opacity-0", "pointer-events-none");
+                modalmap.classList.remove("hidden");
+                backdropmap.classList.remove(
+                    "opacity-0",
+                    "pointer-events-none"
+                );
+                backdropmap.classList.add("opacity-75");
+                backdropmap.style.pointerEvents = "auto";
+                modalmap.setAttribute("aria-hidden", "false");
+                modalmap.setAttribute("aria-modal", "true");
+            }
+
+            // Fungsi untuk menyembunyikan modal dan backdrop
+            function hideModalMap() {
+                modalmap.classList.add("opacity-0", "pointer-events-none");
+                modalmap.classList.add("hidden");
+                modalmap.classList.remove("opacity-100");
+                backdropmap.classList.remove("opacity-75");
+                backdropmap.classList.add("opacity-0", "pointer-events-none");
+                backdropmap.style.pointerEvents = "none";
+                modalmap.setAttribute("aria-hidden", "true");
+                modalmap.setAttribute("aria-modal", "false");
+            }
+
+            function submitMap() {
+                hideModalMap();
+                showModalResult();
+            }
+
+            document.addEventListener("keydown", function (event) {
+                if (
+                    event.key === "m" &&
+                    (modalmap.classList.contains("opacity-100") ||
+                        !modalmap.classList.contains("hidden"))
+                ) {
+                    hideModalMap();
+                } else if (event.key === "m") {
+                    showModalMap();
+                }
+            });
+
+            backdropmap.addEventListener("click", hideModalMap);
+        </script>
+        <script>
+            const modalResult = document.getElementById("modal-result");
+            const backdropResult = document.getElementById(
+                "backdrop-modal-result"
+            );
+
+            // Fungsi untuk menampilkan modal dan backdrop
+            function showModalResult() {
+                modalResult.classList.add("flex");
+                modalResult.classList.add("opacity-100");
+                modalResult.classList.remove(
+                    "opacity-0",
+                    "pointer-events-none"
+                );
+                modalResult.classList.remove("hidden");
+                backdropResult.classList.remove(
+                    "opacity-0",
+                    "pointer-events-none"
+                );
+                backdropResult.classList.add("opacity-75");
+                backdropResult.style.pointerEvents = "auto";
+                modalResult.setAttribute("aria-hidden", "false");
+                modalResult.setAttribute("aria-modal", "true");
+            }
+
+            // Fungsi untuk menyembunyikan modal dan backdrop
+            function hideModalResult() {
+                modalResult.classList.add("opacity-0", "pointer-events-none");
+                modalResult.classList.add("hidden");
+                modalResult.classList.remove("opacity-100");
+                backdropResult.classList.remove("opacity-75");
+                backdropResult.classList.add(
+                    "opacity-0",
+                    "pointer-events-none"
+                );
+                backdropResult.style.pointerEvents = "none";
+                modalResult.setAttribute("aria-hidden", "true");
+                modalResult.setAttribute("aria-modal", "false");
+            }
+
+            backdropResult.addEventListener("click", hideModalResult);
+        </script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/darkmode.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>
