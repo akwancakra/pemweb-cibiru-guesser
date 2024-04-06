@@ -64,10 +64,14 @@ section {
 /* BUTTON TOP */
 .button-top {
     position: absolute;
-    top: 0.75rem;
-    right: 0.75rem;
+    width: 100%;
+    /* top: 0.75rem; */
+    /* right: 0.75rem; */
+    padding: 10px 10px 0 10px;
     z-index: 10;
     gap: 0.5rem;
+    display: flex;
+    justify-content: space-between;
 }
 
 .btn-transparent {

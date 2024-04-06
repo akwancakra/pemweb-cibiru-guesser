@@ -4,9 +4,8 @@ body {
     padding: 0;
 }
 
-
 header {
-    background: linear-gradient(45deg, #41C9E2, #1B4A5E);
+    background: linear-gradient(45deg, #41c9e2, #1b4a5e);
     color: #ffffff;
     padding: 20px;
     text-align: center;
@@ -14,6 +13,10 @@ header {
 
 header h1 {
     margin: 0;
+}
+
+.overflow-x-hidden {
+    overflow-x: hidden;
 }
 
 .navbar {
@@ -36,21 +39,21 @@ header h1 {
     cursor: pointer;
 }
 
-
 .navbar button:hover {
     background-color: #fff;
     color: #000;
 }
 button a {
-    text-decoration: none; 
+    text-decoration: none;
 }
 .navbar button,
-.navbar button a { 
+.navbar button a {
     color: #fff;
 }
 
 .navbar button:hover,
-.navbar button:hover a { /* ngubah warna teks saat tombol dan anchor dihover */
+.navbar button:hover a {
+    /* ngubah warna teks saat tombol dan anchor dihover */
     background-color: #fff;
     color: #000;
 }
@@ -64,12 +67,13 @@ button a {
 
 .container h1 {
     margin-bottom: 20px;
-    font-family: 'Material Symbols Outlined', sans-serif;
+    font-family: "Material Symbols Outlined", sans-serif;
     font-size: 2rem;
 }
 
 main {
     padding: 20px;
+    margin-bottom: 50px;
 }
 
 .review {
@@ -103,7 +107,7 @@ main {
 }
 
 footer {
-    background: linear-gradient(45deg, #41C9E2, #1B4A5E);
+    background: linear-gradient(45deg, #41c9e2, #1b4a5e);
     color: #ffffff;
     padding: 10px 20px;
     text-align: center;
