@@ -86,6 +86,7 @@ section {
     font-size: 0.875rem;
     padding: 0.625rem 1.25rem;
     outline: none;
+    text-align: center;
 }
 
 .btn-primary:hover {
