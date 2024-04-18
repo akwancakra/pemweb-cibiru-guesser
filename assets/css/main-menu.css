@@ -120,6 +120,10 @@ section {
     .text-gradient {
         font-size: 2.25rem;
     }
+
+    .text-sm-hidden {
+        display: block !important;
+    }
 }
 
 @media (min-width: 768px) {
@@ -272,7 +276,70 @@ section {
     font-size: 1.25rem !important;
     line-height: 1.75rem !important;
 }
+
 .my-8 {
     margin-top: 2rem;
     margin-bottom: 2rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.\!text-lg {
+    font-size: 1.125rem !important;
+    line-height: 1.75rem !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-1 {
+    margin-top: 0.25rem;
+}
+
+.mt-2 {
+    margin-top: 0.5rem;
+}
+
+.mt-3 {
+    margin-top: 0.75rem;
+}
+
+.mt-4 {
+    margin-top: 1rem;
+}
+
+.my-4 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.gap-1 {
+    gap: 0.25rem;
+}
+
+.gap-2 {
+    gap: 0.5rem;
+}
+
+.gap-4 {
+    gap: 1rem;
+}
+
+.gap-5 {
+    gap: 1.25rem;
+}
+
+.text-sm-hidden {
+    display: none;
 }
