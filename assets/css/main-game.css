@@ -86,6 +86,7 @@ section {
     font-size: 0.875rem;
     padding: 0.625rem 1.25rem;
     outline: none;
+    text-align: center;
 }
 
 .btn-primary:hover {
@@ -267,18 +268,18 @@ section {
 }
 
 .text-cyan-700 {
-    --tw-text-opacity: 1;
-    color: rgb(14 116 144 / var(--tw-text-opacity));
+    --cb-text-opacity: 1;
+    color: rgb(14 116 144 / var(--cb-text-opacity));
 }
 
 .text-gray-500 {
-    --tw-text-opacity: 1;
-    color: rgb(107 114 128 / var(--tw-text-opacity));
+    --cb-text-opacity: 1;
+    color: rgb(107 114 128 / var(--cb-text-opacity));
 }
 
 .text-gray-900 {
-    --tw-text-opacity: 1;
-    color: rgb(17 24 39 / var(--tw-text-opacity));
+    --cb-text-opacity: 1;
+    color: rgb(17 24 39 / var(--cb-text-opacity));
 }
 
 .bg-transparent {

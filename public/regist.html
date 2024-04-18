@@ -8,9 +8,6 @@
     <link rel="stylesheet" href="../assets/css/regist.css">
 </head>
 <body>
-    <div class="gradient-wrapper">
-        <div class="gradient-wrapper-two"></div>
-    </div>
     <div class="box">
         <div class="border-line"></div>
         <form id="registerForm" action="#">
@@ -35,28 +32,41 @@
                 <span>Confirm Password</span>
                 <i></i>
             </div>
-            <a href="login.html" class="btn">Register</a>
+            <input type="submit" value="Register" class="btn">
             <div class="login-register">
                 <p>Already have an account? <a href="log.html">Login</a></p>
             </div>
         </form>
     </div>
 
-    <script>
-        document.getElementById("registerForm").addEventListener("submit", function(event) {
-            var username = document.getElementById("username").value.trim();
-            var email = document.getElementById("email").value.trim();
-            var password = document.getElementById("password").value.trim();
-            var confirmPassword = document.getElementById("confirmPassword").value.trim();
+        <script>
+            document
+                .getElementById("registerForm")
+                .addEventListener("submit", function (event) {
+                    var username = document
+                        .getElementById("username")
+                        .value.trim();
+                    var email = document.getElementById("email").value.trim();
+                    var password = document
+                        .getElementById("password")
+                        .value.trim();
+                    var confirmPassword = document
+                        .getElementById("confirmPassword")
+                        .value.trim();
 
-            if (username === "" || email === "" || password === "" || confirmPassword === "") {
-                alert("Please fill in all fields.");
-                event.preventDefault(); // Prevent form submission
-            } else if (password !== confirmPassword) {
-                alert("Passwords do not match.");
-                event.preventDefault(); // Prevent form submission
-            }
-        });
-    </script>
-</body>
+                    if (
+                        username === "" ||
+                        email === "" ||
+                        password === "" ||
+                        confirmPassword === ""
+                    ) {
+                        alert("Please fill in all fields.");
+                        event.preventDefault(); // Prevent form submission
+                    } else if (password !== confirmPassword) {
+                        alert("Passwords do not match.");
+                        event.preventDefault(); // Prevent form submission
+                    }
+                });
+        </script>
+    </body>
 </html>

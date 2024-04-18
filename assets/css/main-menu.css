@@ -1,6 +1,8 @@
+@import "main.css";
+
 body {
-    color: #ffffff;
-    background: #002230;
+    color: var(--white);
+    background: var(--bg-dark);
 }
 
 section {
@@ -64,18 +66,22 @@ section {
 /* BUTTON TOP */
 .button-top {
     position: absolute;
-    top: 0.75rem;
-    right: 0.75rem;
+    width: 100%;
+    /* top: 0.75rem; */
+    /* right: 0.75rem; */
+    padding: 10px 10px 0 10px;
     z-index: 10;
     gap: 0.5rem;
+    display: flex;
+    justify-content: space-between;
 }
 
 .btn-transparent {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    color: #ffffff;
-    border: 1px solid #718096;
+    color: var(--white);
+    border: 1px solid var(--gray-500);
     background-color: rgba(82, 80, 80, 0.2);
     transition: background-color 0.3s ease-in-out;
     font-weight: 500;
@@ -113,6 +119,10 @@ section {
 
     .text-gradient {
         font-size: 2.25rem;
+    }
+
+    .text-sm-hidden {
+        display: block !important;
     }
 }
 
@@ -157,20 +167,29 @@ section {
 }
 
 .container .text-gradient {
+    background-image: radial-gradient(
+        ellipse at top right,
+        var(--cb-gradient-stops)
+    );
+    --cb-gradient-from: #60a5fa var(--cb-gradient-from-position);
+    --cb-gradient-to: rgb(96 165 250 / 0) var(--cb-gradient-to-position);
+    --cb-gradient-stops: var(--cb-gradient-from), var(--cb-gradient-to);
+    --cb-gradient-to: rgb(147 197 253 / 0) var(--cb-gradient-to-position);
+    --cb-gradient-stops: var(--cb-gradient-from),
+        #93c5fd var(--cb-gradient-via-position), var(--cb-gradient-to);
+    --cb-gradient-to: rgb(219 234 254 / 0.1) var(--cb-gradient-to-position);
+    -webkit-background-clip: text;
+    background-clip: text;
+    line-height: 1.375;
+    color: transparent;
     letter-spacing: -0.05em;
     font-weight: 600;
     font-size: 2rem;
-    background-image: radial-gradient(ellipse at top right);
-    background-clip: text;
-    -webkit-background-clip: text; /* For Safari */
-    color: #fff;
-    background-size: cover;
-    line-height: 1.375;
 }
 
 .container .card-bg {
     background-color: rgba(3, 24, 33, 0.4);
-    border: 1px solid #4a5568;
+    border: 1px solid var(--gray-600);
     backdrop-filter: blur(8px);
     border-radius: 0.375rem;
     max-width: 36rem;
@@ -257,7 +276,70 @@ section {
     font-size: 1.25rem !important;
     line-height: 1.75rem !important;
 }
+
 .my-8 {
     margin-top: 2rem;
     margin-bottom: 2rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.\!text-lg {
+    font-size: 1.125rem !important;
+    line-height: 1.75rem !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-1 {
+    margin-top: 0.25rem;
+}
+
+.mt-2 {
+    margin-top: 0.5rem;
+}
+
+.mt-3 {
+    margin-top: 0.75rem;
+}
+
+.mt-4 {
+    margin-top: 1rem;
+}
+
+.my-4 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.gap-1 {
+    gap: 0.25rem;
+}
+
+.gap-2 {
+    gap: 0.5rem;
+}
+
+.gap-4 {
+    gap: 1rem;
+}
+
+.gap-5 {
+    gap: 1.25rem;
+}
+
+.text-sm-hidden {
+    display: none;
 }
