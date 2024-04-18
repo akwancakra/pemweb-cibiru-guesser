@@ -238,6 +238,8 @@ body{
     cursor: pointer;
     background-color: #0c3040;
     color: #fff;
+    text-decoration: none;
+    text-align: center;
 }
 .btn:active{
     opacity: 0.8;
