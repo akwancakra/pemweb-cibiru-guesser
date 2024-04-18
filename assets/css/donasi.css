@@ -88,13 +88,13 @@ body {
     padding: 16rem;
 }
 
-.gradient-wrapper .gradient-top {
+.gradient-wrapper-top .gradient-top {
     position: relative;
     display: flex;
     place-items: center;
 }
 
-.gradient-wrapper .gradient-top::before {
+.gradient-wrapper-top .gradient-top::before {
     position: absolute;
     z-index: -20;
     height: 240px;
@@ -116,7 +116,7 @@ body {
     content: var(--cb-content);
 }
 
-.gradient-wrapper .gradient-top::after {
+.gradient-wrapper-top .gradient-top::after {
     position: absolute;
     z-index: -20;
     height: 340px;
@@ -146,7 +146,7 @@ body {
 }
 
 @media (min-width: 1024px) {
-    .gradient-wrapper .gradient-top::before {
+    .gradient-wrapper-top .gradient-top::before {
         content: var(--cb-content);
         height: 540px;
     }
