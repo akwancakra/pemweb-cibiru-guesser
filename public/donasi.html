@@ -3,51 +3,110 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="/assets/css/donasi.css" />
+        <title>Donasi | CibiGuess</title>
+        <link href="../assets/css/donasi.css" rel="stylesheet" />
+        <link href="../assets/css/tw-reset.css" rel="stylesheet" />
         <link
             href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
             rel="stylesheet"
         />
-        <title>Donasi UPI Guesser</title>
-        <style></style>
     </head>
     <body>
-        <nav class="navbar">
-            <div class="container-fluid">
-                <button><a href="main-menu.html">Back to Main Menu</a></button>
-                <button><a href="review.html">See the Reviews</a></button>
-            </div>
-        </nav>
+        <!-- overflow-x-hidden -->
+        <main class="main-wrapper">
+            <section>
+                <div class="gradient-wrapper-top">
+                    <div class="gradient-top"></div>
+                </div>
 
-        <div class="container mt-5">
-            <h1>&#xF136; Cibiru Guesser &#xF136;</h1>
-            <div class="group-4">
-                <form>
-                    <div class="mb-3">
-                        <label for="nama" class="form-label">Nama</label>
-                        <input type="text" class="form-control" id="nama" />
+                <div class="flex justify-between items-center">
+                    <a href="main-menu.html" class="back-button"
+                        ><span class="material-symbols-outlined !text-lg">
+                            reply </span
+                        >Main Menu</a
+                    >
+                </div>
+
+                <div class="content-wrapper">
+                    <div class="text-center mb-3 header">
+                        <p>Donate Us</p>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Optio, quidem.
+                        </p>
                     </div>
-                    <div class="mb-3">
-                        <label for="jumlah" class="form-label"
-                            >Jumlah Donasi</label
-                        >
-                        <input type="number" class="form-control" id="jumlah" />
-                    </div>
-                    <div class="mb-3">
-                        <label for="metode" class="form-label"
-                            >Metode Pembayaran</label
-                        >
-                        <select class="form-select" id="metode">
-                            <option value="1">Transfer Bank</option>
-                            <option value="2">OVO</option>
-                            <option value="3">GoPay</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn-primary">
-                        Donasi Sekarang
-                    </button>
-                </form>
-            </div>
-        </div>
+
+                    <!-- add form donation here, contains name, email, amount, payment method, and message -->
+                    <form class="mt-3">
+                        <div class="input-one">
+                            <div class="mt-4 custom-input">
+                                <label for="name">Name</label>
+                                <div class="mt-1">
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        id="name"
+                                        placeholder="Your name..."
+                                    />
+                                </div>
+                            </div>
+                            <div class="mt-4 custom-input">
+                                <label for="email">Email</label>
+                                <div class="mt-1">
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        id="email"
+                                        placeholder="yourmail@example.com"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="my-4 custom-input">
+                            <label for="amount">Amount</label>
+                            <div class="mt-1 flex items-center gap-1">
+                                <p>Rp</p>
+                                <input
+                                    type="number"
+                                    name="amount"
+                                    id="amount"
+                                    placeholder="10000"
+                                    class="number-input-no-arrow"
+                                />
+                            </div>
+                        </div>
+                        <div class="amount-wrapper">
+                            <button type="button">
+                                <p>Rp 5.000</p>
+                            </button>
+                            <button type="button">
+                                <p>Rp 10.000</p>
+                            </button>
+                            <button type="button">
+                                <p>Rp 50.000</p>
+                            </button>
+                            <button type="button">
+                                <p>Rp 100.000</p>
+                            </button>
+                        </div>
+                        <div class="my-4 custom-textarea">
+                            <label for="message">Message</label>
+                            <div class="mt-1">
+                                <textarea
+                                    name="message"
+                                    id="message"
+                                    rows="5"
+                                    placeholder="Your message..."
+                                ></textarea>
+                            </div>
+                        </div>
+                        <div class="btn-b-wrapper">
+                            <a class="secondary" href="#"> Cancel </a>
+                            <a class="primary" href="#"> Donate Now </a>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
     </body>
 </html>
