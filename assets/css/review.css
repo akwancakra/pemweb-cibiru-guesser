@@ -430,3 +430,9 @@ body {
 .gap-5 {
     gap: 1.25rem;
 }
+
+#fotoprofil {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
